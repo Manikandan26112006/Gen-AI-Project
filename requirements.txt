@@ -1,0 +1,13 @@
+groq
+python-dotenv
+streamlit
+pandas
+plotly
+sqlalchemy
+openpyxl
+langgraph
+langchain
+chromadb
+fastapi
+uvicorn
+pydantic

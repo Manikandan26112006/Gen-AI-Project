@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Streamlit
+.streamlit/
+static/
+
+# Database
+*.db
+vector_db/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+faculty_ai_system/
+backend.zip
+test.bat
+go.py
+lib/
