@@ -39,7 +39,7 @@ init_db()
 def handle_chat(user_query, role, faculty_id=None, faculty_name="Guest", mode="text"):
     from groq import Groq
     # Try multiple ways to get the key + fallback to the user's provided key
-    api_key = os.getenv("GROQ_API_KEY", "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")
+    api_key = os.getenv("GROQ_API_KEY")
     if not api_key: return "Groq API Key missing."
     client = Groq(api_key=api_key)
     # Provide data context if possible
@@ -481,7 +481,7 @@ def render_voice_mode_page(role, faculty_id, faculty_name):
         transcribed_text = ""
         try:
             from groq import Groq
-            api_key = os.getenv("GROQ_API_KEY", "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")
+            api_key = os.getenv("GROQ_API_KEY")
             client = Groq(api_key=api_key)
             with st.spinner("AI is understanding your voice..."):
                 transcription = client.audio.transcriptions.create(
@@ -513,7 +513,7 @@ def analyze_certificate(category, text_content):
     prompt = f"Analyze this '{category}' claim: '{text_content}'. Is it likely real/authentic or fake/suspicious? Determine its intent. Be brief (2-3 sentences max)."
     try:
         from groq import Groq
-        api_key = os.getenv("GROQ_API_KEY", "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")
+        api_key = os.getenv("GROQ_API_KEY")
         client = Groq(api_key=api_key)
         chat = client.chat.completions.create(
             messages=[{"role":"user", "content":prompt}], model="llama-3.1-8b-instant"
